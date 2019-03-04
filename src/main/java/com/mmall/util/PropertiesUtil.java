@@ -17,6 +17,7 @@ public class PropertiesUtil {
 
     private static Properties props;
 
+    //执行顺序优于普通代码块
     static {
         String fileName = "mmall.properties";
         props = new Properties();
@@ -36,7 +37,7 @@ public class PropertiesUtil {
     }
 
     public static String getProperty(String key,String defaultValue){
-
+        //避免两边的空格
         String value = props.getProperty(key.trim());
         if(StringUtils.isBlank(value)){
             value = defaultValue;
