@@ -16,7 +16,8 @@ public class TokenCache {
     public static final String TOKEN_PREFIX = "token_";
     //本地的缓存初始化为10000，当超过时，采用LRU算法
     //LRU算法
-    private static LoadingCache<String, String> localCache = CacheBuilder.newBuilder().initialCapacity(1000).maximumSize(10000).expireAfterAccess(12, TimeUnit.HOURS)
+    private static LoadingCache<String, String> localCache = CacheBuilder.newBuilder()
+            .initialCapacity(1000).maximumSize(10000).expireAfterAccess(12, TimeUnit.HOURS)
             .build(new CacheLoader<String, String>() {
                 //默认的数据加载实现，当调用get取值的时候，如果Key没有对应的值，就调用这个方法进行加载
                 @Override
